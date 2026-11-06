@@ -1,7 +1,7 @@
 <form (submit)="submit($event)">
   @let serverAddress = routeForm.serverAddress();
   <label for="serverAddress">
-    Server address
+    Server address (domain)
     <input type="text" id="serverAddress" [formField]="routeForm.serverAddress" />
     @if (serverAddress.touched() && serverAddress.invalid()) {
       <p class="error">{{ serverAddress.errors()[0].message }}</p>
@@ -10,7 +10,7 @@
 
   @let backend = routeForm.backend();
   <label for="backend">
-    Backend
+    Backend (host:port)
     <input type="text" id="backend" [formField]="routeForm.backend" />
     @if (backend.touched() && backend.invalid()) {
       <p class="error">{{ backend.errors()[0].message }}</p>

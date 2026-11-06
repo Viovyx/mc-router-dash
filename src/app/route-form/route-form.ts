@@ -13,10 +13,12 @@ import { ActionButton } from '../components/action-button/action-button';
 export class RouteForm {
   mcRouter = inject(McRouter);
 
-  routeModel = signal<ServerRoute>({
+  readonly routeInitialState: ServerRoute = {
     serverAddress: '',
     backend: '',
-  });
+  };
+
+  routeModel = signal<ServerRoute>({ ...this.routeInitialState });
 
   routeForm = form(this.routeModel, (route) => {
     required(route.serverAddress, { message: 'Server addres is required.' });
@@ -47,5 +49,6 @@ export class RouteForm {
     if (this.routeForm().invalid()) return;
 
     this.mcRouter.addRoute(this.routeModel());
+    this.routeForm().reset({ ...this.routeInitialState });
   }
 }
