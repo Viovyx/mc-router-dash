@@ -2,7 +2,7 @@
 
 Very simple dashboard that can be used to manage [mc-router](https://github.com/itzg/mc-router) routes.
 
-It works using the built in API of mc-router but I had to implement some minor changes in [my own fork](https://github.com/Viovyx/mc-router/tree/feat/api-cors-and-auth), adding CORS support and an optional API key.
+It works using the built in API of `mc-router` but I had to implement some minor changes in [my own fork](https://github.com/Viovyx/mc-router/tree/feat/api-cors-and-auth), adding CORS support and an optional API key.
 
 ## Features
 - View existing routes
@@ -10,9 +10,9 @@ It works using the built in API of mc-router but I had to implement some minor c
 - Create new routes
 
 ## Setup
-The easiest way is to setup both mc-router and mc-router-dash with docker compose.
+The easiest way is to setup both `mc-router` and `mc-router-dash` with docker compose.
 
-I have written a simple docker compose for mc-router with CORS and API key support [here](https://github.com/Viovyx/mc-router/tree/feat/docker-compose).
+I have written a simple docker compose for `mc-router` with the CORS and API key support implemented [here](https://github.com/Viovyx/mc-router/tree/feat/docker-compose).
 
 1. Clone [my mc-router with docker compose](https://github.com/Viovyx/mc-router/tree/feat/docker-compose).
 2. Copy `example.env` to `.env`.
