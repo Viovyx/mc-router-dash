@@ -3,13 +3,14 @@ import { ApiRoute, ApiRouteDataList } from './types';
 
 const host = environment.mcRouterApi;
 const apiKey = environment.apiKey;
+const headers: HeadersInit = {
+  'X-API-KEY': apiKey
+};
 
 export async function getRoutes(): Promise<ApiRoute[]> {
-  const response = await fetch(`${host}/routes`, {
+  const response = await fetch(host + '/routes', {
     method: 'GET',
-    headers: {
-      'X-API-KEY': apiKey
-    }
+    headers: headers
   });
   if (!response.ok) throw new Error('Failed to fetch servers');
 
@@ -27,4 +28,35 @@ export async function getRoutes(): Promise<ApiRoute[]> {
   }
 
   return routes;
+}
+
+export async function addRoute(apiRoute: ApiRoute): Promise<boolean> {
+  const response = await fetch(host + '/routes', {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify(apiRoute)
+  });
+
+  return response.ok;
+}
+
+export async function deleteRoute(serverAddress: string): Promise<boolean> {
+  const response = await fetch(host + '/routes/' + serverAddress.trim(), {
+    method: 'DELETE',
+    headers: headers
+  });
+
+  return response.ok;
+}
+
+export async function setDefaultRoute(backend: string): Promise<boolean> {
+  const response = await fetch(host + '/defaultRoute', {
+    method: 'POST',
+    headers: headers,
+    body: JSON.stringify({
+      backend: backend
+    })
+  });
+
+  return response.ok;
 }
