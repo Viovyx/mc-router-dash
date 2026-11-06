@@ -9,6 +9,9 @@ It works using the built in API of `mc-router` but I had to implement some minor
 - Delete routes
 - Create new routes
 
+> [!WARNING]
+> There currently is no built-in authentication for the dashboard! It is expected to put the dashboard behind a proxy that will restrict access or only make it available locally!
+
 ## Setup
 The easiest way is to setup both `mc-router` and `mc-router-dash` with docker compose.
 
