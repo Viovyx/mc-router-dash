@@ -5,6 +5,10 @@
     }
   }
   <app-card title="Add new route">
-    <app-route-form />
+    @if (routeFormShown()) {
+      <app-route-form (closed)="routeFormShown.set(false)" />
+    } @else {
+      <app-action-button name="Add" theme="submit" (click)="routeFormShown.set(true)" />
+    }
   </app-card>
 </ul>

@@ -11,3 +11,13 @@ label {
   display: block;
   margin-bottom: 1rem;
 }
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-evenly;
+
+  > * {
+    width: 100%;
+  }
+}

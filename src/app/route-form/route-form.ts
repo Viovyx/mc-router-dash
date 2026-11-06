@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import { form, FormField, required, email, minLength, pattern } from '@angular/forms/signals';
 import { ServerRoute } from '../../api/types';
 import { McRouter } from '../mc-router';
@@ -12,6 +12,7 @@ import { ActionButton } from '../components/action-button/action-button';
 })
 export class RouteForm {
   mcRouter = inject(McRouter);
+  closed = output();
 
   readonly routeInitialState: ServerRoute = {
     serverAddress: '',
@@ -50,5 +51,6 @@ export class RouteForm {
 
     this.mcRouter.addRoute(this.routeModel());
     this.routeForm().reset({ ...this.routeInitialState });
+    this.closed.emit();
   }
 }

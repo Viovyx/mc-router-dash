@@ -17,5 +17,8 @@
     }
   </label>
 
-  <app-action-button name="Add" theme="submit" (click)="submit()" />
+  <div class="actions">
+    <app-action-button name="Add" theme="submit" (click)="submit()" />
+    <app-action-button name="Cancel" theme="delete" (click)="closed.emit()" />
+  </div>
 </form>
