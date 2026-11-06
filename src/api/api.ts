@@ -1,5 +1,5 @@
 import { environment } from '../environments/environment';
-import { ApiRoute, ApiRouteDataList } from './types';
+import { ServerRoute, ServerRouteDataList } from './types';
 
 const host = environment.mcRouterApi;
 const apiKey = environment.apiKey;
@@ -7,16 +7,16 @@ const headers: HeadersInit = {
   'X-API-KEY': apiKey
 };
 
-export async function getRoutes(): Promise<ApiRoute[]> {
+export async function getRoutes(): Promise<ServerRoute[]> {
   const response = await fetch(host + '/routes', {
     method: 'GET',
     headers: headers
   });
   if (!response.ok) throw new Error('Failed to fetch servers');
 
-  const data: ApiRouteDataList = await response.json();
+  const data: ServerRouteDataList = await response.json();
 
-  let routes: ApiRoute[] = [];
+  let routes: ServerRoute[] = [];
   for (const routeName in data) {
     if (!Object.hasOwn(data, routeName)) continue;
     const route = data[routeName];
@@ -30,11 +30,11 @@ export async function getRoutes(): Promise<ApiRoute[]> {
   return routes;
 }
 
-export async function addRoute(apiRoute: ApiRoute): Promise<boolean> {
+export async function addRoute(serverRoute: ServerRoute): Promise<boolean> {
   const response = await fetch(host + '/routes', {
     method: 'POST',
     headers: headers,
-    body: JSON.stringify(apiRoute)
+    body: JSON.stringify(serverRoute)
   });
 
   return response.ok;

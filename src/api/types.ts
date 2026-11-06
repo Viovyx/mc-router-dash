@@ -1,11 +1,11 @@
-export interface ApiRouteData {
+export interface ServerRouteData {
   backend: string;
   scalingTarget: string;
 }
 
-export type ApiRouteDataList = Record<string, ApiRouteData>;
+export type ServerRouteDataList = Record<string, ServerRouteData>;
 
-export interface ApiRoute {
+export interface ServerRoute {
   serverAddress: string;
   backend: string;
 }
