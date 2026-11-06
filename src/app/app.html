@@ -1,6 +1,2 @@
-<ul>
-  @for (route of mcRouter.routes.value(); track route.serverAddress) {
-    <li>{{ route.serverAddress }}: {{ route.backend }}</li>
-  }
-</ul>
+<app-route-list />
 <router-outlet />

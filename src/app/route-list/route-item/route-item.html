@@ -1,0 +1,10 @@
+@let route = serverRoute();
+
+<app-card [title]="route.serverAddress">
+  <p><b>Backend:</b> {{ route.backend }}</p>
+  <app-action-button
+    name="Delete"
+    theme="delete"
+    (click)="mcRouter.deleteRoute(route.serverAddress)"
+  />
+</app-card>

@@ -1,14 +1,11 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { environment } from '../environments/environment';
-import { McRouter } from './mc-router';
+import { RouteList } from './route-list/route-list';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouteList],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
 })
-export class App {
-  mcRouter = inject(McRouter);
-}
+export class App {}

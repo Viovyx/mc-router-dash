@@ -1,0 +1,10 @@
+<ul>
+  @if (mcRouter.routes.hasValue()) {
+    @for (route of mcRouter.routes.value(); track route.serverAddress) {
+      <app-route-item [serverRoute]="route" />
+    }
+  }
+  <app-card title="Add new route">
+    <app-route-form />
+  </app-card>
+</ul>

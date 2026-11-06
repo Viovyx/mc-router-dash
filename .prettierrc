@@ -1,8 +1,12 @@
 {
-  "$schema": "https://www.schemastore.org/prettierrc",
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "trailingComma": "none",
-  "printWidth": 80
+  "printWidth": 100,
+  "singleQuote": true,
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
 }
