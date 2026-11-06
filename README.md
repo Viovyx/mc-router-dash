@@ -40,3 +40,6 @@ docker compose up -d --build
 > Since this is a client side application the `.env` vars get injected into the build process.
 > 
 > If you change any vars in `.env` make sure to rebuild the image!
+
+## Preview
+<img width="1261" height="385" alt="McRouterDash Preview" src="https://github.com/user-attachments/assets/0337eb18-95d4-45f4-bcd2-c21cff4c305e" />
