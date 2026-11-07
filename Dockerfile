@@ -1,11 +1,8 @@
 # =========================================
 # Stage 1: Build the Angular Application
 # =========================================
-ARG NODE_VERSION=26.12.1-alpine
-ARG NGINX_VERSION=alpine3.24
 
-# Use a lightweight Node.js image for building (customizable via ARG)
-FROM node:${NODE_VERSION} AS builder
+FROM node:alpine AS builder
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -34,7 +31,7 @@ RUN npm run build -- --define "mcRouterApi='$MC_ROUTER_API_URL'" --define "apiKe
 # Stage 2: Prepare Nginx to Serve Static Files
 # =========================================
 
-FROM nginx/nginx-unprivileged:${NGINX_VERSION} AS runner
+FROM nginx/nginx-unprivileged:alpine AS runner
 
 # Install htpasswd utility
 USER root
