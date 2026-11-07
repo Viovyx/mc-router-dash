@@ -3,6 +3,7 @@
 Very simple dashboard that can be used to manage [mc-router](https://github.com/itzg/mc-router) routes via its API.
 
 ## Features
+
 - View existing routes
 - Delete routes
 - Create new routes
@@ -11,24 +12,27 @@ Very simple dashboard that can be used to manage [mc-router](https://github.com/
 > There currently is no built-in authentication for the dashboard! It is expected to put the dashboard behind a proxy that will restrict access or only make it available locally!
 
 ## Setup
-I have written a fork of `mc-router` with the CORS and API key support implemented [here](https://github.com/Viovyx/mc-router/tree/feat/api-cors-and-auth).
 
-1. Make sure your `mc-router` API is accessible for the dash client and has CORS configured correctly (public).
-2. Clone this repo (`mc-router-dash`).
-3. Clone `example.env` to `.env`.
-4. Setup the `.env`
-   1. Set `MC_ROUTER_API` to the address the client will use to reach the API.
-   2. Set the port according to your setup.
-   3. If you set an API key for `mc-router` make sure to set it here as well.
-5. Start `mc-router-dash`
+The easiest way to set both `mc-router` and `mc-router-dash` up is with the example docker compose in the repo.
+
+1. Clone this repo.
+2. Copy `example.env` to `.env`
+3. Setup the `.env`
+   1. Change `DASHBOARD_PORT`, `ROUTER_API_PORT` and `ROUTER_MC_PORT` if needed
+   2. Set `MC_ROUTER_API_URL` to the public address for the API
+   3. Set `API_ALLOWED_ORIGINS` to the public address of the dashboard, multiple origins can be given by seperating them with a `,`
+   4. Set `API_KEY` to a strong password, it's recomended to generate this randomly
+4. Start the stack using
+
 ```sh
 docker compose up -d --build
 ```
 
 > [!NOTE]
 > Since this is a client side application the `.env` vars get injected into the build process.
-> 
-> If you change any vars in `.env` make sure to rebuild the image!
+>
+> If you change `MC_ROUTER_API_URL` or `API_KEY` make sure to rebuild the image!
 
 ## Preview
+
 <img width="1261" height="385" alt="McRouterDash Preview" src="https://github.com/user-attachments/assets/0337eb18-95d4-45f4-bcd2-c21cff4c305e" />

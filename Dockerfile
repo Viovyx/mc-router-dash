@@ -20,14 +20,15 @@ RUN target=/root/.npm npm ci
 COPY . .
 
 # Inject MC_ROUTER_API env var
-ARG MC_ROUTER_API='http://127.0.0.1:8080'
-ENV MC_ROUTER_API=$MC_ROUTER_API
+ARG MC_ROUTER_API_URL
+RUN test -n "$MC_ROUTER_API_URL" || (echo "MC_ROUTER_API_URL  not set" && false)
+ENV MC_ROUTER_API_URL=$MC_ROUTER_API_URL
 
 ARG API_KEY=''
 ENV API_KEY=$API_KEY
 
 # Build the Angular application
-RUN npm run build -- --define "mcRouterApi='$MC_ROUTER_API'" --define "apiKey='$API_KEY'"
+RUN npm run build -- --define "mcRouterApi='$MC_ROUTER_API_URL'" --define "apiKey='$API_KEY'"
 
 # =========================================
 # Stage 2: Prepare Nginx to Serve Static Files
