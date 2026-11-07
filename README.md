@@ -13,9 +13,9 @@ Very simple dashboard that can be used to manage [mc-router](https://github.com/
 
 ## Setup
 
-The easiest way to set both `mc-router` and `mc-router-dash` up is with the example docker compose in the repo.
+The easiest way to setup both `mc-router` and `mc-router-dash` is with the docker compose in the repo.
 
-1. Clone this repo.
+1. Clone this repo
 2. Copy `example.env` to `.env`
 3. Setup the `.env`
    1. Change `DASHBOARD_PORT`, `ROUTER_API_PORT` and `ROUTER_MC_PORT` if needed
