@@ -1,8 +1,6 @@
 # McRouterDash
 
-Very simple dashboard that can be used to manage [mc-router](https://github.com/itzg/mc-router) routes.
-
-It works using the built in API of `mc-router` but I had to implement some minor changes in [my own fork](https://github.com/Viovyx/mc-router/tree/feat/api-cors-and-auth), adding CORS support and an optional API key.
+Very simple dashboard that can be used to manage [mc-router](https://github.com/itzg/mc-router) routes via its API.
 
 ## Features
 - View existing routes
@@ -13,27 +11,15 @@ It works using the built in API of `mc-router` but I had to implement some minor
 > There currently is no built-in authentication for the dashboard! It is expected to put the dashboard behind a proxy that will restrict access or only make it available locally!
 
 ## Setup
-The easiest way is to setup both `mc-router` and `mc-router-dash` with docker compose.
+I have written a fork of `mc-router` with the CORS and API key support implemented [here](https://github.com/Viovyx/mc-router/tree/feat/api-cors-and-auth).
 
-I have written a simple docker compose for `mc-router` with the CORS and API key support implemented [here](https://github.com/Viovyx/mc-router/tree/feat/docker-compose).
-
-1. Clone [my mc-router with docker compose](https://github.com/Viovyx/mc-router/tree/feat/docker-compose).
-2. Copy `example.env` to `.env`.
-3. Setup the `.env`.
-   1. Leave `API_KEY` empty to disable it.
-   2. Make sure `APP_ALLOWED_ORIGINS` includes the domain where your dashboard will be hosted on!
-   3. Setup the ports according to your setup.
-4. Start `mc-router`
-```sh
-docker compose up -d --build
-```
-5. Make sure your `mc-router` API is accessible for the dash client (public).
+5. Make sure your `mc-router` API is accessible for the dash client and has CORS configured correctly (public).
 6. Clone this repo (`mc-router-dash`).
 7. Clone `example.env` to `.env`.
 8. Setup the `.env`
    1. Set `MC_ROUTER_API` to the address the client will use to reach the API.
    2. Set the port according to your setup.
-   3. If you set an `API_KEY` earlier make sure to set it here as well.
+   3. If you set an API key for `mc-router` make sure to set it here as well.
 9. Start `mc-router-dash`
 ```sh
 docker compose up -d --build
