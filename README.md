@@ -13,14 +13,14 @@ Very simple dashboard that can be used to manage [mc-router](https://github.com/
 ## Setup
 I have written a fork of `mc-router` with the CORS and API key support implemented [here](https://github.com/Viovyx/mc-router/tree/feat/api-cors-and-auth).
 
-5. Make sure your `mc-router` API is accessible for the dash client and has CORS configured correctly (public).
-6. Clone this repo (`mc-router-dash`).
-7. Clone `example.env` to `.env`.
-8. Setup the `.env`
+1. Make sure your `mc-router` API is accessible for the dash client and has CORS configured correctly (public).
+2. Clone this repo (`mc-router-dash`).
+3. Clone `example.env` to `.env`.
+4. Setup the `.env`
    1. Set `MC_ROUTER_API` to the address the client will use to reach the API.
    2. Set the port according to your setup.
    3. If you set an API key for `mc-router` make sure to set it here as well.
-9. Start `mc-router-dash`
+5. Start `mc-router-dash`
 ```sh
 docker compose up -d --build
 ```
